@@ -3,14 +3,14 @@ Go mod的导入实验
 
 背景介绍
 
-1、如何使用go module导入gitlab/github之类的公有/私有仓库非常简单
-2、但是初学者在写自己的hello world的时候、或者项目开发的时候
-想要使用go的import导本地文件的时候，会遇到一些问题，很多人就容易卡在这里
+1、如何使用go module导入gitlab/github之类的公有/私有仓库非常简单  
+2、但是初学者在写自己的hello world的时候、或者项目开发的时候  
+想要使用go的import导本地文件的时候，会遇到一些问题，很多人就容易卡在这里  
 
 目标：
-1、通过实验，梳理明白go module的import本地文件的方式
-2、注意GO111MODULE=on的设置
-3、仔细观察，其实你go mod init的包名，你也可以不那么规范
+1、通过实验，梳理明白go module的import本地文件的方式  
+2、注意GO111MODULE=on的设置  
+3、仔细观察，其实你go mod init的包名，你也可以不那么规范  
 - 规范的：go mod init github.com/whoway/go-mod-exp
 - 不规范的：go mod init exp1
 
@@ -18,10 +18,12 @@ Go mod的导入实验
 结论：
 
 1、除去package main这个包，Go语言规定Go语言的一个目录下！无论你有多少个文件，都必须是同一个package【包】【见实验2】
-- 特殊情况：package main这个包，在同一个目录下只能有1个文件里面写package main这个包，否则会报错！！【实验3】
-2、Go语言的目录下，你写的package【包】的名字，虽然不是必须和目录名一致！但是比如在百度、腾讯之类公司的编码规范中
-是非常建议你写成和目录名一致的【不然就会出现实验1那样的，不规范的事情，你在import的目是iamsoryy这样的目录，
-但是却用的他里面的package为two的包，就很令人费解】
+- 特殊情况：package main这个包，在同一个目录下只能有1个文件里面写package main这个包，否则会报错！！【实验3】  
+2、Go语言的目录下，你写的package【包】的名字，虽然不是必须和目录名一致！但是比如在百度、腾讯之类公司的编码规范中  
+是非常建议你写成和目录名一致的【不然就会出现实验1那样的，不规范的事情，你在import的目是iamsoryy这样的目录，  
+但是却用的他里面的package为two的包，就很令人费解】  
+3、我总结的import规则是: go.mod中对应的module名字/相对那个go.mod的一系列路径【而不是到你的package的名字！】  
+
 
 ## 导入本地项目的包
 
